@@ -1,12 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuToggle = document.getElementById("menu-toggle");
-  const slideMenu = document.getElementById("slide-menu");
-  const closeBtn = document.getElementById("close-btn");
+const menuToggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav");
 
-  menuToggle.addEventListener("click", () => {
-    slideMenu.classList.add("active");
-  });
-  closeBtn.addEventListener("click", () => {
-    slideMenu.classList.remove("active");
-  });
+menuToggle.addEventListener("click", () => {
+  menuToggle.classList.toggle("active");
+  nav.classList.toggle("active");
 });
