@@ -4,89 +4,168 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>omamori</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body { margin:0; font-family: sans-serif; background:#fff; }
+
+    /* ヘッダー */
+    header {
+      background:#fff; 
+      padding:10px 20px; 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center;
+    }
+    header h1 { margin:0; color:#e15b8f; font-size:1.5em; }
+
+    /* ハンバーガー */
+    .menu-toggle {
+      font-size:2em; 
+      cursor:pointer;
+      user-select:none;
+      z-index:1001;
+      position:relative;
+    }
+
+    /* メニュー */
+    nav {
+      position:fixed;
+      top:0; right:-250px;
+      width:250px; height:100%;
+      background:#b87333;
+      transition: right 0.3s;
+      padding-top:60px;
+      z-index:1000;
+    }
+    nav.open { right:0; }
+    nav ul { list-style:none; padding:0; margin:0; }
+    nav li { padding:15px 20px; border-bottom:1px solid #fff2; color:#fff; }
+    nav a { color:#fff; text-decoration:none; }
+
+    .close-btn {
+      position:absolute; top:15px; right:20px;
+      font-size:2em; cursor:pointer;
+    }
+
+    /* オーバーレイ */
+    .overlay {
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.4);
+      display:none;
+      z-index:999;
+    }
+    .overlay.show { display:block; }
+
+    /* 背景パターン */
+    .section { padding:60px 20px; }
+
+    .pattern-dots {
+      background-image: radial-gradient(#f8cce0 1px, transparent 1px);
+      background-size:20px 20px;
+    }
+    .pattern-stripes {
+      background: repeating-linear-gradient(
+        -45deg, #fdd 0 10px, #fff 10px 20px
+      );
+    }
+    .pattern-flowers {
+      background-image: radial-gradient(circle at 10px 10px, #f8cce0 2px, transparent 0),
+                        radial-gradient(circle at 30px 30px, #f8cce0 2px, transparent 0);
+      background-size:40px 40px;
+    }
+
+    /* フッター */
+    footer {
+      background:#fde9a9; 
+      text-align:center; 
+      padding:20px 10px;
+    }
+    .footer-icons {
+      display:flex; 
+      justify-content:center;
+      gap:30px;
+      margin-bottom:10px;
+    }
+    .footer-icons a {
+      text-decoration:none; 
+      color:#333;
+      font-size:0.9em;
+    }
+    .footer-icons img {
+      display:block;
+      width:40px; height:40px;
+      margin:0 auto 5px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ヘッダー -->
-  <header class="site-header">
-    <div class="logo">omamori</div>
-    <div id="menuToggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
+<header>
+  <h1>omamori</h1>
+  <div class="menu-toggle" id="menuBtn">☰</div>
+</header>
 
-  <!-- オーバーレイ -->
-  <div id="overlay"></div>
+<div class="overlay" id="overlay"></div>
 
-  <!-- ナビメニュー -->
-  <nav id="navMenu" class="nav">
-    <button class="close-btn" id="closeBtn">&times;</button>
-    <ul>
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#">イベント</a></li>
-      <li><a href="#">体験内容</a></li>
-      <li><a href="#">お知らせ</a></li>
-      <li><a href="#">アクセス</a></li>
-      <li><a href="#">お問い合わせ</a></li>
-    </ul>
-    <div class="nav-icons">
-      <a href="#"><img src="images/googlecalendar.png" alt="予約"><span>ご予約</span></a>
-      <a href="#"><img src="images/line.png" alt="LINE"><span>LINE公式</span></a>
-      <a href="#"><img src="images/instagram.png" alt="Instagram"><span>Instagram</span></a>
-    </div>
-  </nav>
+<nav id="sideMenu">
+  <span class="close-btn" id="closeBtn">✕</span>
+  <ul>
+    <li><a href="#">ホーム</a></li>
+    <li><a href="#">イベント</a></li>
+    <li><a href="#">体験内容</a></li>
+    <li><a href="#">お知らせ</a></li>
+    <li><a href="#">アクセス</a></li>
+    <li><a href="#">お問い合わせ</a></li>
+    <li><a href="#"><img src="images/calendar.png" alt="予約" width="20"> ご予約</a></li>
+    <li><a href="#"><img src="images/line.png" alt="LINE" width="20"> LINE公式</a></li>
+    <li><a href="#"><img src="images/instagram.png" alt="Instagram" width="20"> Instagram</a></li>
+  </ul>
+</nav>
 
-  <!-- 本文 -->
-  <main class="content">
-    <section>
-      <h2>赤ちゃんとの毎日</h2>
-      <p>「この子のために、何をしてあげれば一番いいのだろう？」</p>
-    </section>
+<main>
+  <section class="section pattern-dots">
+    <h2>赤ちゃんとの毎日</h2>
+    <p>ここに本文が入ります。</p>
+  </section>
 
-    <section>
-      <h2>イベント内容</h2>
-      <p>ここに体験イベントの詳細が入ります。ダミーテキストを入れてページを縦長にしています。</p>
-    </section>
+  <section class="section pattern-stripes">
+    <h2>イベント内容</h2>
+    <p>ここにイベントの詳細が入ります。</p>
+  </section>
 
-    <section>
-      <h2>お知らせ</h2>
-      <p>さらに文章を追加します。さらに文章を追加します。さらに文章を追加します。</p>
-    </section>
-  </main>
+  <section class="section pattern-flowers">
+    <h2>お知らせ</h2>
+    <p>ここにお知らせが入ります。</p>
+  </section>
+</main>
 
-  <!-- フッター -->
-  <footer class="site-footer">
-    <div class="footer-icons">
-      <a href="#"><img src="images/googlecalendar.png" alt="予約"><p>ご予約</p></a>
-      <a href="#"><img src="images/line.png" alt="LINE"><p>LINE公式</p></a>
-      <a href="#"><img src="images/instagram.png" alt="Instagram"><p>Instagram</p></a>
-    </div>
-    <p>© omamori</p>
-  </footer>
+<footer>
+  <div class="footer-icons">
+    <a href="#"><img src="images/calendar.png" alt="予約">ご予約</a>
+    <a href="#"><img src="images/line.png" alt="LINE">LINE公式</a>
+    <a href="#"><img src="images/instagram.png" alt="Instagram">Instagram</a>
+  </div>
+  <p>© omamori</p>
+</footer>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    const overlay = document.getElementById('overlay');
-    const closeBtn = document.getElementById('closeBtn');
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
 
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.add('open');
-      overlay.classList.add('show');
-    });
+  menuBtn.onclick = () => {
+    sideMenu.classList.add("open");
+    overlay.classList.add("show");
+  };
+  closeBtn.onclick = () => {
+    sideMenu.classList.remove("open");
+    overlay.classList.remove("show");
+  };
+  overlay.onclick = () => {
+    sideMenu.classList.remove("open");
+    overlay.classList.remove("show");
+  };
+</script>
 
-    closeBtn.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      overlay.classList.remove('show');
-    });
-
-    overlay.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      overlay.classList.remove('show');
-    });
-  </script>
 </body>
 </html>
