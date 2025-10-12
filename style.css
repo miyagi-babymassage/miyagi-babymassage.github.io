@@ -1,99 +1,137 @@
 body {
   margin: 0;
-  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", sans-serif;
-  background-color: #fffaf7;
-  color: #333;
+  font-family: sans-serif;
+  background: url("images/bg-pattern.png") no-repeat center center fixed;
+  background-size: cover;
 }
 
-/* --- ヘッダー --- */
-.header {
+/* ヘッダー */
+.site-header {
+  background: #fff3c9; /* タイトル部背景色 */
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
-  background-color: #fff3cc; /* タイトル背景色 */
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 1.5em;
+  color: #e75b93;
   font-weight: bold;
-  color: #f8c8d8;
-  -webkit-text-stroke: 2px #e75480;
 }
 
-/* --- ハンバーガーメニュー --- */
-.menu-toggle {
-  width: 30px;
-  height: 22px;
-  position: relative;
+/* ハンバーガーメニュー */
+.hamburger {
   cursor: pointer;
-  z-index: 2001;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.menu-toggle::before,
-.menu-toggle::after,
-.menu-toggle span {
-  content: "";
-  position: absolute;
+.hamburger span {
+  width: 25px;
   height: 3px;
-  width: 100%;
   background: #333;
-  left: 0;
-  transition: 0.3s;
+  display: block;
 }
-.menu-toggle::before { top: 0; }
-.menu-toggle::after { bottom: 0; }
-.menu-toggle span { top: 50%; transform: translateY(-50%); }
-.menu-toggle.open::before { transform: rotate(45deg); top: 10px; }
-.menu-toggle.open::after { transform: rotate(-45deg); bottom: 9px; }
-.menu-toggle.open span { opacity: 0; }
 
-/* --- ナビゲーション --- */
+/* ナビメニュー */
 .nav {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 75%;
+  right: -250px;
+  width: 250px;
   height: 100%;
-  background: #c79c6e;
-  transition: right 0.3s;
-  padding: 60px 20px;
-  z-index: 2000;
+  background: #b97f4a;
+  transition: 0.3s;
+  padding: 20px;
+  z-index: 1001;
 }
-.nav.open { right: 0; }
-.nav ul { list-style: none; padding: 0; margin: 0; }
-.nav li { padding: 14px 0; border-bottom: 1px solid #8b6a4e; }
-.nav a { text-decoration: none; color: #333; font-size: 18px; display: block; }
+.nav.open {
+  right: 0;
+}
 
-/* --- メニュー内アイコン --- */
-.menu-footer a {
+.nav ul {
+  list-style: none;
+  padding: 0;
+}
+.nav ul li {
+  margin: 15px 0;
+}
+.nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ナビ内のアイコン */
+.nav-icons {
+  margin-top: 20px;
+}
+.nav-icons a {
   display: flex;
   align-items: center;
-  margin-top: 12px;
-  gap: 10px;
+  margin: 10px 0;
+  color: #fff;
   text-decoration: none;
-  color: #333;
-  font-size: 16px;
 }
-.menu-footer img { width: 28px; height: 28px; }
+.nav-icons img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
 
-/* --- 本文パターン --- */
-.content { padding: 40px 20px; }
-.dot { background: repeating-radial-gradient(circle, #ffeef2, #ffeef2 10px, transparent 12px); }
-.stripe { background: repeating-linear-gradient(45deg, #ffe6ec, #ffe6ec 20px, transparent 20px, transparent 40px); }
-.flower { background: repeating-radial-gradient(circle at 10% 10%, #ffdbe6, transparent 40px); }
+/* ×ボタン */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
 
-/* --- フッター --- */
-footer {
-  background: #fff3cc;
+/* オーバーレイ */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 1000;
+}
+#overlay.show {
+  display: block;
+}
+
+/* コンテンツ */
+.content {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 100vh;
+}
+
+/* フッター */
+.site-footer {
+  background: #fff3c9;
   padding: 20px;
   text-align: center;
 }
 .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   margin-bottom: 10px;
 }
-.footer-icons div { text-align: center; }
-.footer-icons img { width: 40px; height: 40px; display: block; margin: 0 auto; }
-.footer-icons p { margin: 4px 0 0; font-size: 14px; }
+.footer-icons img {
+  width: 40px;
+  height: 40px;
+}
+.footer-icons a {
+  color: #000;
+  text-decoration: none;
+}
