@@ -1,27 +1,36 @@
 body {
+  font-family: "Comic Sans MS", "Rounded Mplus 1c", sans-serif;
   margin: 0;
-  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic UI", sans-serif;
+  padding: 0;
   background: #fffaf7;
   color: #333;
 }
 
-/* ヘッダー */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff3c4; /* 淡い黄色 */
-  padding: 10px 20px;
-  position: fixed;
-  width: 100%;
+  padding: 15px;
+  background: #fff8dc;
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+/* BabyPark風ロゴ */
 .logo {
-  font-size: 24px;
+  font-size: 34px;
   font-weight: bold;
   color: #e85a78;
+  text-shadow:
+    -2px -2px 0 #fff,
+     2px -2px 0 #fff,
+    -2px  2px 0 #fff,
+     2px  2px 0 #fff,
+    -3px -3px 0 #d6336c,
+     3px -3px 0 #d6336c,
+    -3px  3px 0 #d6336c,
+     3px  3px 0 #d6336c;
 }
 
 /* ハンバーガーメニュー */
@@ -32,7 +41,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  z-index: 1100;
+  z-index: 1001;
 }
 .menu-toggle span {
   display: block;
@@ -41,68 +50,85 @@ body {
   border-radius: 2px;
   transition: 0.3s;
 }
-
-/* クリック時に「×」に変化 */
-.menu-toggle.active span:nth-child(1) {
+.menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-.menu-toggle.active span:nth-child(2) {
+.menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ナビゲーション */
+/* ナビゲーションメニュー */
 .nav {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 70%;
+  left: -100%;
+  width: 75%;
   height: 100%;
-  background: #fff;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  background: #f7f2ec; /* 薄い茶色 */
+  transition: left 0.3s ease;
   z-index: 1000;
+  padding-top: 60px;
 }
-.nav.active {
-  right: 0;
+.nav.open {
+  left: 0;
 }
 .nav ul {
   list-style: none;
-  padding: 80px 20px;
+  padding: 0;
   margin: 0;
 }
-.nav ul li {
-  border-bottom: 1px solid #eee; /* 区切り線 */
+.nav li {
+  border-bottom: 1px solid #ddd;
 }
-.nav ul li a {
+.nav a {
   display: block;
-  padding: 15px 10px;
+  padding: 15px;
   font-size: 18px;
   text-decoration: none;
   color: #333;
 }
 
+/* メニューフッター */
+.menu-footer {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+.menu-footer a {
+  display: block;
+  padding: 12px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #333;
+}
+.menu-footer .btn.reserve {
+  background: #e85a78;
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 /* セクション */
 .hero {
-  padding: 120px 20px 60px;
   text-align: center;
-  background: #fff;
+  padding: 60px 20px;
+  background: #ffeef1;
 }
 .hero h1 {
   font-size: 26px;
-  color: #333;
 }
 .hero p {
   font-size: 16px;
-  margin: 10px 0;
 }
 .btn {
   display: inline-block;
   background: #e85a78;
   color: #fff;
-  padding: 12px 20px;
+  padding: 12px 25px;
   border-radius: 25px;
   text-decoration: none;
   font-size: 16px;
@@ -111,26 +137,18 @@ body {
 /* 本文 */
 .content {
   padding: 40px 20px;
-  background: #fff;
+  background: #fffaf7;
 }
-.content h2 {
-  color: #e85a78;
-  margin-bottom: 15px;
+.content.dot {
+  background-image: radial-gradient(#f7cbd2 1px, transparent 1px);
+  background-size: 12px 12px;
 }
-.content ul {
-  padding-left: 20px;
-}
-.content li {
-  margin: 8px 0;
-}
-
-/* 背景パターン */
 .content.stripe {
-  background: repeating-linear-gradient(
-    45deg,
-    #ffe6eb,
-    #ffe6eb 10px,
-    #fff 10px,
-    #fff 20px
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #ffd6de,
+    #ffd6de 10px,
+    #fffaf7 10px,
+    #fffaf7 20px
   );
 }
