@@ -4,228 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>omamori</title>
-  <style>
-    /* 全体背景色（タイトル上部も統一） */
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background-color: #fff8e7; /* 優しいベージュ系 */
-    }
-
-    header {
-      background-color: #fff8e7; /* タイトルと上部を統一 */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.5em;
-      color: #d36d8c;
-    }
-
-    /* ハンバーガーアイコン */
-    .menu-toggle {
-      width: 30px;
-      height: 25px;
-      position: relative;
-      cursor: pointer;
-    }
-    .menu-toggle span {
-      background: #333;
-      display: block;
-      height: 3px;
-      margin: 6px 0;
-      transition: 0.4s;
-    }
-    .menu-toggle.open span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .menu-toggle.open span:nth-child(2) {
-      opacity: 0;
-    }
-    .menu-toggle.open span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    /* ナビメニュー */
-    nav {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 70%; /* 横幅を少し短め */
-      height: 100%;
-      background: #d19b6a; /* 少し薄い茶色 */
-      padding: 60px 20px;
-      transition: 0.3s;
-      z-index: 999;
-    }
-    nav.open {
-      left: 0;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    nav li {
-      margin: 20px 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.2em;
-    }
-    nav .menu-icons {
-      margin-top: 30px;
-    }
-    nav .menu-icons a {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-    nav .menu-icons img {
-      width: 28px;
-      margin-right: 10px;
-    }
-
-    /* セクション */
-    section {
-      padding: 100px 20px 60px;
-      text-align: center;
-      min-height: 500px;
-      position: relative;
-    }
-    .bg1 { background: repeating-linear-gradient(45deg, #ffdbe6, #ffdbe6 10px, transparent 10px, transparent 20px); }
-    .bg2 { background: repeating-linear-gradient(-45deg, #ffdbe6, #ffdbe6 10px, transparent 10px, transparent 20px); }
-    .bg3 { background: radial-gradient(circle, #ffdbe6 1px, transparent 1px); background-size: 20px 20px; }
-    .bg4 { background: repeating-linear-gradient(90deg, #ffdbe6, #ffdbe6 5px, transparent 5px, transparent 20px); }
-    .bg5 { background: repeating-conic-gradient(#ffdbe6 0% 25%, transparent 0% 50%); background-size: 40px 40px; }
-
-    /* 白い四角形の写真スペース */
-    .photo-box {
-      width: 80%;
-      max-width: 400px;
-      height: 200px;
-      margin: 20px auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    /* フッター */
-    footer {
-      background: #fff8e7;
-      text-align: center;
-      padding: 20px;
-    }
-    footer .footer-icons {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 10px;
-    }
-    footer .footer-icons div {
-      text-align: center;
-    }
-    footer .footer-icons img {
-      width: 36px;
-      display: block;
-      margin: 0 auto 5px;
-    }
-    footer p {
-      margin: 0;
-      font-size: 0.9em;
-      color: #555;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>omamori</h1>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="logo">omamori</div>
     <div class="menu-toggle" id="menuToggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
+    <nav class="nav" id="navMenu">
+      <ul>
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">イベント</a></li>
+        <li><a href="#">体験内容</a></li>
+        <li><a href="#">お知らせ</a></li>
+        <li><a href="#">アクセス</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+      <div class="menu-footer">
+        <a href="#"><img src="images/calendar.png" alt="予約"> ご予約</a>
+        <a href="#"><img src="images/line.png" alt="LINE"> LINE公式</a>
+        <a href="#"><img src="images/instagram.png" alt="Instagram"> Instagram</a>
+      </div>
+    </nav>
   </header>
 
-  <nav id="navMenu">
-    <ul>
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#">イベント</a></li>
-      <li><a href="#">体験内容</a></li>
-      <li><a href="#">お知らせ</a></li>
-      <li><a href="#">アクセス</a></li>
-      <li><a href="#">お問い合わせ</a></li>
-    </ul>
-    <div class="menu-icons">
-      <a href="#"><img src="images/google.png" alt="予約">ご予約</a>
-      <a href="#"><img src="images/line.png" alt="LINE">LINE公式</a>
-      <a href="#"><img src="images/instagram.png" alt="Instagram">Instagram</a>
-    </div>
-  </nav>
-
+  <!-- 本文 -->
   <main>
-    <section class="bg1">
+    <!-- セクション1 ドット -->
+    <section class="content dot">
       <h2>赤ちゃんとの毎日</h2>
+      <div class="photo-dummy"></div>
       <p>ここに本文が入ります。</p>
-      <div class="photo-box"></div>
     </section>
-    <section class="bg2">
+
+    <!-- セクション2 ストライプ -->
+    <section class="content stripe">
       <h2>イベント内容</h2>
+      <div class="photo-dummy"></div>
       <p>ここにイベントの詳細が入ります。</p>
-      <div class="photo-box"></div>
     </section>
-    <section class="bg3">
+
+    <!-- セクション3 渦巻き -->
+    <section class="content swirl">
       <h2>お知らせ</h2>
+      <div class="photo-dummy"></div>
       <p>ここにお知らせが入ります。</p>
-      <div class="photo-box"></div>
     </section>
-    <section class="bg4">
+
+    <!-- セクション4 レンガ風 -->
+    <section class="content brick">
       <h2>アクセス</h2>
+      <div class="photo-dummy"></div>
       <p>ここにアクセス情報が入ります。</p>
-      <div class="photo-box"></div>
     </section>
-    <section class="bg5">
+
+    <!-- セクション5 花風 -->
+    <section class="content flower">
       <h2>お問い合わせ</h2>
-      <p>ここにお問い合わせの詳細が入ります。</p>
-      <div class="photo-box"></div>
+      <div class="photo-dummy"></div>
+      <p>ここに問い合わせ内容が入ります。</p>
     </section>
   </main>
 
-  <footer>
+  <!-- フッター -->
+  <footer class="footer">
     <div class="footer-icons">
-      <div><img src="images/google.png" alt="予約"><span>ご予約</span></div>
-      <div><img src="images/line.png" alt="LINE"><span>LINE公式</span></div>
-      <div><img src="images/instagram.png" alt="Instagram"><span>Instagram</span></div>
+      <div>
+        <img src="images/calendar.png" alt="予約">
+        <p>ご予約</p>
+      </div>
+      <div>
+        <img src="images/line.png" alt="LINE">
+        <p>LINE公式</p>
+      </div>
+      <div>
+        <img src="images/instagram.png" alt="Instagram">
+        <p>Instagram</p>
+      </div>
     </div>
-    <p>© omamori</p>
+    <p class="copy">© omamori</p>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
-
-    // メニュー外をクリックしたら閉じる
-    document.addEventListener('click', (e) => {
-      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-        navMenu.classList.remove('open');
-        menuToggle.classList.remove('open');
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
