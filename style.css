@@ -1,83 +1,181 @@
-/* ベース */
+/* --- 基本 --- */
 body {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", sans-serif;
   color: #333;
-  background-color: #fff;
+  background-color: #fffaf7;
 }
 
-/* ヘッダー */
+/* --- ヘッダー --- */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffeecc; /* タイトル背景色 */
-  padding: 10px 20px;
-  position: fixed;
+  padding: 15px 20px;
+  background-color: #fff3cc; /* タイトル背景 */
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .logo {
-  font-size: 1.5em;
+  font-size: 28px;
   font-weight: bold;
-  color: #e86a8c;
+  color: #f8c8d8;
+  -webkit-text-stroke: 2px #e75480;
+  letter-spacing: 1px;
 }
 
+/* --- ハンバーガーメニュー --- */
 .menu-toggle {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
   cursor: pointer;
-  width: 30px;
-  gap: 5px;
+  z-index: 2001;
 }
-
 .menu-toggle span {
   display: block;
   height: 3px;
   background: #333;
   border-radius: 2px;
-  transition: 0.3s;
+}
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* メニュー */
+/* --- ナビメニュー --- */
 .nav {
   position: fixed;
   top: 0;
-  right: -70%;
+  right: -80%;
   width: 70%;
   height: 100%;
-  background: #c98954; /* 薄茶色 */
-  transition: right 0.3s;
+  background-color: #c89060; /* 茶色系 少し薄め */
   padding: 60px 20px;
-  box-sizing: border-box;
-  z-index: 999;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 2000;
 }
-
 .nav.open {
   right: 0;
 }
-
 .nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-.nav ul li {
-  margin: 15px 0;
+.nav li {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
 }
-
-.nav ul li a {
+.nav a {
   color: #fff;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 18px;
 }
 
+/* --- メニュー内アイコンリンク --- */
 .menu-footer {
-  margin-top: 30px;
+  margin-top: 20px;
+}
+.menu-footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fff;
+  margin: 12px 0;
+}
+.menu-footer img {
+  width: 28px;
+  height: 28px;
 }
 
-.menu-foot
+/* --- セクション共通 --- */
+.content {
+  padding: 40px 20px;
+  position: relative;
+  text-align: center;
+}
+
+/* 白い四角形ダミー */
+.photo-dummy {
+  width: 90%;
+  max-width: 600px;
+  height: 200px;
+  margin: 20px auto;
+  background: #fff;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- 背景パターン --- */
+.dot {
+  background: radial-gradient(#f8c8d8 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #f8c8d8,
+    #f8c8d8 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+.swirl {
+  background: repeating-radial-gradient(
+    circle,
+    #f8c8d8,
+    #f8c8d8 5px,
+    transparent 5px,
+    transparent 20px
+  );
+}
+.brick {
+  background: 
+    linear-gradient(#f8c8d8 2px, transparent 2px),
+    linear-gradient(90deg, #f8c8d8 2px, transparent 2px);
+  background-size: 50px 30px;
+}
+.flower {
+  background-image: radial-gradient(circle at 20% 20%, #f8c8d8 2px, transparent 2px),
+    radial-gradient(circle at 80% 20%, #f8c8d8 2px, transparent 2px),
+    radial-gradient(circle at 20% 80%, #f8c8d8 2px, transparent 2px),
+    radial-gradient(circle at 80% 80%, #f8c8d8 2px, transparent 2px);
+  background-size: 40px 40px;
+}
+
+/* --- フッター --- */
+.footer {
+  background-color: #fff3cc;
+  padding: 20px;
+  text-align: center;
+}
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 10px;
+}
+.footer-icons img {
+  width: 40px;
+  height: 40px;
+}
+.footer-icons p {
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+.copy {
+  font-size: 14px;
+  color: #555;
+}
