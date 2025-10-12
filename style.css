@@ -1,113 +1,136 @@
 body {
   margin: 0;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  background: #fffaf5;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic UI", sans-serif;
+  background: #fffaf7;
   color: #333;
 }
 
 /* ヘッダー */
-.site-header {
-  background: #fff7d6;
-  padding: 15px 20px;
-  position: sticky;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff3c4; /* 淡い黄色 */
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 1000;
 }
-.site-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: #e55b77;
-  margin: 0;
-  display: inline-block;
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e85a78;
 }
 
-/* ハンバーガーアイコン */
+/* ハンバーガーメニュー */
 .menu-toggle {
-  float: right;
-  background: none;
-  border: none;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
+  z-index: 1100;
 }
 .menu-toggle span {
   display: block;
-  width: 28px;
   height: 3px;
-  margin: 6px;
   background: #333;
   border-radius: 2px;
+  transition: 0.3s;
 }
 
-/* スライドメニュー */
-.slide-menu {
+/* クリック時に「×」に変化 */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ナビゲーション */
+.nav {
   position: fixed;
-  top: 0; left: -260px;
-  width: 260px;
+  top: 0;
+  right: -100%;
+  width: 70%;
   height: 100%;
   background: #fff;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.15);
-  transition: left 0.3s;
-  padding: 20px;
-  z-index: 2000;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  z-index: 1000;
 }
-.slide-menu.active { left: 0; }
-.slide-menu ul {
+.nav.active {
+  right: 0;
+}
+.nav ul {
   list-style: none;
-  padding: 0;
+  padding: 80px 20px;
+  margin: 0;
 }
-.slide-menu ul li {
-  margin: 20px 0;
+.nav ul li {
+  border-bottom: 1px solid #eee; /* 区切り線 */
 }
-.slide-menu ul li a {
+.nav ul li a {
+  display: block;
+  padding: 15px 10px;
+  font-size: 18px;
   text-decoration: none;
-  font-size: 20px;
   color: #333;
 }
-.close-btn {
-  font-size: 28px;
-  background: none;
-  border: none;
-  float: right;
-  cursor: pointer;
-}
 
-/* メインビジュアル */
-.main-visual {
-  background: url('main.jpg') no-repeat center/cover;
+/* セクション */
+.hero {
+  padding: 120px 20px 60px;
   text-align: center;
-  color: white;
-  padding: 100px 20px;
+  background: #fff;
 }
-.main-text h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+.hero h1 {
+  font-size: 26px;
+  color: #333;
 }
-.main-text p {
-  font-size: 18px;
-  margin-bottom: 20px;
+.hero p {
+  font-size: 16px;
+  margin: 10px 0;
 }
 .btn {
   display: inline-block;
-  background: #f77492;
-  color: white;
+  background: #e85a78;
+  color: #fff;
   padding: 12px 20px;
   border-radius: 25px;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 16px;
+}
+
+/* 本文 */
+.content {
+  padding: 40px 20px;
+  background: #fff;
+}
+.content h2 {
+  color: #e85a78;
+  margin-bottom: 15px;
+}
+.content ul {
+  padding-left: 20px;
+}
+.content li {
+  margin: 8px 0;
 }
 
 /* 背景パターン */
-.dot-bg {
-  background: radial-gradient(#f9dfe5 1px, transparent 1px);
-  background-size: 20px 20px;
-  padding: 40px 20px;
-}
-.stripe-bg {
+.content.stripe {
   background: repeating-linear-gradient(
     45deg,
-    #fff5f8,
-    #fff5f8 20px,
-    #ffe6ec 20px,
-    #ffe6ec 40px
+    #ffe6eb,
+    #ffe6eb 10px,
+    #fff 10px,
+    #fff 20px
   );
-  padding: 40px 20px;
 }
