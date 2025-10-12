@@ -1,8 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const nav = document.getElementById("nav");
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const slideMenu = document.getElementById("slide-menu");
+  const closeBtn = document.getElementById("close-btn");
 
-  hamburger.addEventListener("click", () => {
-    nav.classList.toggle("active");
+  menuToggle.addEventListener("click", () => {
+    slideMenu.classList.add("active");
+  });
+  closeBtn.addEventListener("click", () => {
+    slideMenu.classList.remove("active");
   });
 });
