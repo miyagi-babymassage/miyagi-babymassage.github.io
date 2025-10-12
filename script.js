@@ -1,7 +1,7 @@
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('open');
-  navMenu.classList.toggle('open');
+menuToggle.addEventListener("click", () => {
+  menuToggle.classList.toggle("open");
+  navMenu.classList.toggle("open");
 });
