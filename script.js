@@ -13,7 +13,7 @@ window.addEventListener("scroll", function(){
     header.style.top = "-80px";  // ヘッダー非表示
   } else {
     nav.style.bottom = "-60px";  // 下ナビ隠す
-    header.style.top = "0";      // ヘッダー戻す
+    header.style.top = "0";      // ヘッダー戻すmmmm
   }
   lastScrollTop = st <= 0 ? 0 : st;
 }, false);
