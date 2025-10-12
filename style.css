@@ -1,4 +1,4 @@
-/* --- 全体の基本フォントを丸ゴシック系に --- */
+/* --- 基本 --- */
 body {
   margin: 0;
   font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", sans-serif;
@@ -6,62 +6,57 @@ body {
   color: #333;
 }
 
-/* --- ヘッダーとロゴ --- */
-header {
+/* --- ヘッダー --- */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #fff3cc; /* タイトル背景色 */
-  position: relative;
-  z-index: 2000;
+  background-color: #fff3cc; /* タイトルと同じ色 */
 }
 
 .logo {
   font-size: 28px;
   font-weight: bold;
-  color: #f8c8d8; /* 薄めのピンク */
-  -webkit-text-stroke: 2px #e75480; /* 外枠 濃いピンク */
-  letter-spacing: 1px;
+  color: #f8c8d8;
+  -webkit-text-stroke: 2px #e75480;
 }
 
 /* --- ハンバーガーメニュー --- */
 .menu-toggle {
-  width: 30px;
-  height: 22px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
   cursor: pointer;
   z-index: 2001;
 }
 .menu-toggle span {
   display: block;
   height: 3px;
-  margin: 5px 0;
   background: #333;
   border-radius: 2px;
-  transition: 0.3s;
 }
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+.menu-toggle.open::after {
+  content: "✕";
+  font-size: 28px;
+  color: #333;
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 
-/* --- ナビメニュー --- */
+/* --- メニュー --- */
 .nav {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 80%;
+  width: 75%;
   height: 100%;
-  background-color: #c9a888; /* 茶色系 */
+  background-color: #c9a982;
   transition: right 0.3s ease;
   padding: 60px 20px;
-  box-sizing: border-box;
   z-index: 2000;
 }
 .nav.open {
@@ -69,82 +64,90 @@ header {
 }
 .nav ul {
   list-style: none;
-  margin: 0;
   padding: 0;
 }
 .nav li {
   padding: 14px 0;
-  border-bottom: 1px solid #9b7a5c; /* 濃い茶色線 */
+  border-bottom: 1px solid #8b6b50;
 }
 .nav a {
   text-decoration: none;
+  color: #333;
   font-size: 18px;
-  color: #222;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-/* --- メニュー下部 --- */
+/* --- メニュー内フッター --- */
 .menu-footer {
   margin-top: 20px;
 }
 .menu-footer a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  color: #222;
-  text-decoration: none;
-  margin: 12px 0;
-}
-.menu-footer img {
-  width: 24px;
-  height: 24px;
-}
-
-/* --- ご予約ボタン --- */
-.btn.reserve {
-  background: #e75480;
-  color: #fff;
-  padding: 12px;
-  border-radius: 25px;
-  text-align: center;
+  gap: 12px;
   margin: 15px 0;
   font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-decoration: none;
+  color: #333;
 }
-.btn.reserve img {
-  width: 22px;
-  height: 22px;
+.menu-footer img.menu-icon {
+  width: 40px;
+  height: 40px;
 }
 
-/* --- 本文セクション --- */
-main {
-  padding: 0;
+/* --- ヒーロー --- */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
 }
-section.content {
-  padding: 20px;
-  width: 100%; /* 両端の白余白を削除 */
-  box-sizing: border-box;
+.hero h1 {
+  font-size: 24px;
 }
-section.dot {
-  background: repeating-linear-gradient(
-    0deg,
-    #fdeef3,
-    #fdeef3 2px,
-    transparent 2px,
-    transparent 20px
-  );
+.hero .btn {
+  display: inline-block;
+  background-color: #e75480;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-top: 15px;
 }
-section.stripe {
-  background: repeating-linear-gradient(
-    -45deg,
-    #fdeef3,
-    #fdeef3 10px,
-    transparent 10px,
-    transparent 20px
-  );
+
+/* --- コンテンツ背景パターン --- */
+.content {
+  padding: 30px 20px;
+}
+.pattern1 {
+  background: repeating-linear-gradient(45deg, #fdeef4, #fdeef4 20px, #fffaf7 20px, #fffaf7 40px);
+}
+.pattern2 {
+  background: repeating-linear-gradient(-45deg, #ffe6ec, #ffe6ec 20px, #fffaf7 20px, #fffaf7 40px);
+}
+
+/* --- フッター --- */
+footer {
+  background-color: #fff3cc; /* ヘッダーと同じ色 */
+  padding: 30px 15px;
+  text-align: center;
+}
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+.footer-icons div {
+  text-align: center;
+}
+.footer-icons img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+.footer-copy {
+  font-size: 12px;
+  color: #666;
+}
+.footer-info {
+  font-size: 12px;
+  color: #444;
 }
