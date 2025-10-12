@@ -7,56 +7,86 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- ヘッダー -->
-  <header class="header">
+  <header class="site-header">
     <div class="logo">omamori</div>
-    <div class="menu-toggle" id="menuToggle"></div>
-    <nav class="nav" id="navMenu">
-      <ul>
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">イベント</a></li>
-        <li><a href="#">体験内容</a></li>
-        <li><a href="#">お知らせ</a></li>
-        <li><a href="#">アクセス</a></li>
-        <li><a href="#">お問い合わせ</a></li>
-      </ul>
-      <div class="menu-footer">
-        <a href="#"><img src="images/calendar.png" alt="予約"> ご予約</a>
-        <a href="#"><img src="images/line.png" alt="LINE"> LINE公式</a>
-        <a href="#"><img src="images/instagram.png" alt="Instagram"> Instagram</a>
-      </div>
-    </nav>
+    <div id="menuToggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
+  <!-- オーバーレイ -->
+  <div id="overlay"></div>
+
+  <!-- ナビメニュー -->
+  <nav id="navMenu" class="nav">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">イベント</a></li>
+      <li><a href="#">体験内容</a></li>
+      <li><a href="#">お知らせ</a></li>
+      <li><a href="#">アクセス</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="#"><img src="images/googlecalendar.png" alt="予約"><span>ご予約</span></a>
+      <a href="#"><img src="images/line.png" alt="LINE"><span>LINE公式</span></a>
+      <a href="#"><img src="images/instagram.png" alt="Instagram"><span>Instagram</span></a>
+    </div>
+  </nav>
+
   <!-- 本文 -->
-  <main>
-    <section class="content dot">
+  <main class="content">
+    <section>
       <h2>赤ちゃんとの毎日</h2>
-      <p>「この子のために、何をしてあげれば一番いいのだろう？」<br>
-      そんな想いを抱きながら過ごしていませんか？</p>
+      <p>「この子のために、何をしてあげれば一番いいのだろう？」</p>
     </section>
 
-    <section class="content stripe">
+    <section>
       <h2>イベント内容</h2>
-      <p>ここに体験イベントの詳細が入ります。<br>ダミーテキストを入れてページを縦長にしています。</p>
+      <p>ここに体験イベントの詳細が入ります。ダミーテキストを入れてページを縦長にしています。</p>
     </section>
 
-    <section class="content flower">
+    <section>
       <h2>お知らせ</h2>
       <p>さらに文章を追加します。さらに文章を追加します。さらに文章を追加します。</p>
     </section>
   </main>
 
   <!-- フッター -->
-  <footer>
+  <footer class="site-footer">
     <div class="footer-icons">
-      <div><img src="images/calendar.png" alt="予約"><p>ご予約</p></div>
-      <div><img src="images/line.png" alt="LINE"><p>LINE公式</p></div>
-      <div><img src="images/instagram.png" alt="Instagram"><p>Instagram</p></div>
+      <a href="#"><img src="images/googlecalendar.png" alt="予約"><p>ご予約</p></a>
+      <a href="#"><img src="images/line.png" alt="LINE"><p>LINE公式</p></a>
+      <a href="#"><img src="images/instagram.png" alt="Instagram"><p>Instagram</p></a>
     </div>
-    <p class="copyright">© omamori</p>
+    <p>© omamori</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeBtn');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.add('open');
+      overlay.classList.add('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
