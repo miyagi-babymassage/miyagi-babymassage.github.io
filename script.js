@@ -1,19 +1,15 @@
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("active");
-}
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.getElementById("menuToggle");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuClose = document.getElementById("menuClose");
 
-let lastScrollTop = 0;
-window.addEventListener("scroll", function(){
-  let st = window.pageYOffset || document.documentElement.scrollTop;
-  const nav = document.getElementById("bottomNav");
-  const header = document.getElementById("mainHeader");
+  if (menuToggle && menuOverlay && menuClose) {
+    menuToggle.addEventListener("click", function() {
+      menuOverlay.classList.add("active");
+    });
 
-  if (st > 100) {
-    nav.style.bottom = "0";      // 下ナビ表示
-    header.style.top = "-80px";  // ヘッダー非表示
-  } else {
-    nav.style.bottom = "-60px";  // 下ナビ隠す
-    header.style.top = "0";      // ヘッダー戻す
+    menuClose.addEventListener("click", function() {
+      menuOverlay.classList.remove("active");
+    });
   }
-  lastScrollTop = st <= 0 ? 0 : st;
-}, false);
+});
