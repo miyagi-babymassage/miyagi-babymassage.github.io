@@ -4,64 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>omamori</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <!-- ヘッダー -->
-  <header>
-    <div class="logo">omamori</div>
-    <nav>
-      <div class="hamburger" id="hamburger">
-        &#9776;
-      </div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">イベント</a></li>
-        <li><a href="#">体験内容</a></li>
-        <li><a href="#">お知らせ</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">omamori</h1>
+      <button class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <!-- メインビジュアル -->
-  <section class="hero">
-    <h1>夫婦で学べる<br>ふれあい育児体験イベント</h1>
-    <p>赤ちゃんと一緒に、安心の少人数制</p>
-    <a href="#" class="btn">開催場所と日時を確認する</a>
-  </section>
-
-  <!-- 赤ちゃんとの毎日 -->
-  <section class="about">
-    <h2>赤ちゃんとの毎日</h2>
-    <p>
-      「この子のために、何をしてあげれば一番いいのだろう？」<br>
-      そんな想いを抱きながら過ごしていませんか？
-    </p>
+  <!-- ナビメニュー -->
+  <nav class="slide-menu" id="slide-menu">
+    <button class="close-btn" id="close-btn">×</button>
     <ul>
-      <li>✔ 家での遊びがワンパターンになってしまう</li>
-      <li>✔ 成長に合った関わり方が分からない</li>
-      <li>✔ パパもママも、もっと育児を楽しみたい</li>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">イベント</a></li>
+      <li><a href="#">体験内容</a></li>
+      <li><a href="#">お知らせ</a></li>
+      <li><a href="#">アクセス</a></li>
+      <li><a href="#">お問い合わせ</a></li>
     </ul>
+  </nav>
+
+  <!-- メインビジュアル -->
+  <section class="main-visual">
+    <div class="main-text">
+      <h2>夫婦で学べる<br>ふれあい育児体験イベント</h2>
+      <p>赤ちゃんと一緒に、安心の少人数制</p>
+      <a href="#" class="btn">開催場所と日時を確認する</a>
+    </div>
   </section>
 
-  <!-- イベント内容 -->
-  <section class="event">
-    <h2>イベント内容</h2>
-    <p>楽しいふれあい遊びやリラックスタイムを体験できます。</p>
-  </section>
+  <!-- コンテンツ -->
+  <main class="content dot-bg">
+    <section>
+      <h2>赤ちゃんとの毎日</h2>
+      <p>「この子のために、何をしてあげれば一番いいのだろう？」<br>
+      そんな想いを抱きながら過ごしていませんか？</p>
+      <ul>
+        <li>✔ 家での遊びがワンパターンになってしまう</li>
+        <li>✔ 成長に合った関わり方が分からない</li>
+        <li>✔ パパもママも、もっと育児を楽しみたい</li>
+      </ul>
+    </section>
 
-  <!-- フッター -->
-  <footer>
-    <p>&copy; 2025 omamori All Rights Reserved.</p>
-  </footer>
-
-  <!-- JS -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  </script>
+    <section class="stripe-bg">
+      <h2>イベント内容</h2>
+      <p>ここに体験イベントの詳細が入ります。</p>
+    </section>
+  </main>
 </body>
 </html>
