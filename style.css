@@ -1,52 +1,46 @@
-/* --- 全体フォント＆リセット --- */
+/* --- 全体の基本フォントを丸ゴシック系に --- */
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", "Arial Rounded MT Bold", sans-serif;
+  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", sans-serif;
   background-color: #fffaf7;
   color: #333;
 }
 
 /* --- ヘッダーとロゴ --- */
-.header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
   background-color: #fff3cc; /* タイトル背景色 */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  position: relative;
+  z-index: 2000;
 }
 
 .logo {
   font-size: 28px;
   font-weight: bold;
-  color: #f8c8d8; /* 薄めピンク */
-  -webkit-text-stroke: 2px #e75480;
-  text-stroke: 2px #e75480;
+  color: #f8c8d8; /* 薄めのピンク */
+  -webkit-text-stroke: 2px #e75480; /* 外枠 濃いピンク */
   letter-spacing: 1px;
 }
 
 /* --- ハンバーガーメニュー --- */
 .menu-toggle {
-  width: 28px;
+  width: 30px;
   height: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
   cursor: pointer;
   z-index: 2001;
-  position: relative;
 }
-
 .menu-toggle span {
+  display: block;
   height: 3px;
+  margin: 5px 0;
   background: #333;
   border-radius: 2px;
   transition: 0.3s;
 }
-
 .menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -57,95 +51,100 @@ body {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* --- ナビゲーションメニュー --- */
+/* --- ナビメニュー --- */
 .nav {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 75%;
+  width: 80%;
   height: 100%;
-  background-color: #d4bba1; /* 濃いめベージュ */
-  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  background-color: #c9a888; /* 茶色系 */
   transition: right 0.3s ease;
   padding: 60px 20px;
+  box-sizing: border-box;
   z-index: 2000;
 }
-
 .nav.open {
   right: 0;
 }
-
 .nav ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
-
 .nav li {
   padding: 14px 0;
-  border-bottom: 1px solid #8b6b4a; /* 区切り線 濃いめ茶色 */
+  border-bottom: 1px solid #9b7a5c; /* 濃い茶色線 */
 }
-
 .nav a {
   text-decoration: none;
-  color: #333;
-  font-size: 20px;
-  display: block;
-}
-
-/* --- メニュー内フッター --- */
-.menu-footer {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.menu-footer a {
-  text-decoration: none;
   font-size: 18px;
-  color: #333;
+  color: #222;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-/* --- ボタン（予約など） --- */
-.btn {
-  display: inline-block;
-  background-color: #e75480;
+/* --- メニュー下部 --- */
+.menu-footer {
+  margin-top: 20px;
+}
+.menu-footer a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #222;
+  text-decoration: none;
+  margin: 12px 0;
+}
+.menu-footer img {
+  width: 24px;
+  height: 24px;
+}
+
+/* --- ご予約ボタン --- */
+.btn.reserve {
+  background: #e75480;
   color: #fff;
-  text-align: center;
   padding: 12px;
   border-radius: 25px;
+  text-align: center;
+  margin: 15px 0;
   font-size: 18px;
-  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn.reserve img {
+  width: 22px;
+  height: 22px;
 }
 
-/* --- 本文 --- */
+/* --- 本文セクション --- */
 main {
+  padding: 0;
+}
+section.content {
   padding: 20px;
+  width: 100%; /* 両端の白余白を削除 */
+  box-sizing: border-box;
 }
-
-h1, h2, h3 {
-  font-weight: bold;
-  color: #333;
-}
-
-/* --- 背景模様 --- */
-.content.dot {
-  background: repeating-radial-gradient(#fcdcdc 1px, transparent 2px);
-  background-size: 20px 20px;
-  padding: 30px;
-}
-
-.content.stripe {
+section.dot {
   background: repeating-linear-gradient(
-    45deg,
-    #ffe6eb,
-    #ffe6eb 10px,
+    0deg,
+    #fdeef3,
+    #fdeef3 2px,
+    transparent 2px,
+    transparent 20px
+  );
+}
+section.stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    #fdeef3,
+    #fdeef3 10px,
     transparent 10px,
     transparent 20px
   );
-  padding: 30px;
 }
