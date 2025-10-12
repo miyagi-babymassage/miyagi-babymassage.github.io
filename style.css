@@ -1,154 +1,145 @@
+/* ================================
+   全体のスタイル
+================================ */
 body {
-  font-family: "Comic Sans MS", "Rounded Mplus 1c", sans-serif;
+  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", "Arial Rounded MT Bold", sans-serif;
   margin: 0;
   padding: 0;
-  background: #fffaf7;
+  background-color: #fff;
   color: #333;
+  line-height: 1.6;
 }
 
-.header {
+/* ================================
+   ヘッダー・ロゴ部分
+================================ */
+header {
+  background-color: #fff3cc; /* タイトル背景を上までクリーム色に統一 */
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  background: #fff8dc;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
-/* BabyPark風ロゴ */
-.logo {
-  font-size: 34px;
+.logo-text {
+  font-size: 36px;
   font-weight: bold;
-  color: #e85a78;
+  color: #f4a7b9; /* 薄いピンク */
   text-shadow:
     -2px -2px 0 #fff,
      2px -2px 0 #fff,
     -2px  2px 0 #fff,
      2px  2px 0 #fff,
-    -3px -3px 0 #d6336c,
+    -3px -3px 0 #d6336c, /* 外側：濃いピンクの縁取り */
      3px -3px 0 #d6336c,
     -3px  3px 0 #d6336c,
      3px  3px 0 #d6336c;
 }
 
-/* ハンバーガーメニュー */
+/* ================================
+   ハンバーガーメニュー
+================================ */
 .menu-toggle {
-  width: 30px;
-  height: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 28px;
+  height: 20px;
   cursor: pointer;
-  z-index: 1001;
+  position: relative;
 }
-.menu-toggle span {
-  display: block;
+
+.bar {
   height: 3px;
-  background: #333;
+  width: 100%;
+  background-color: #333;
   border-radius: 2px;
   transition: 0.3s;
 }
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+
+/* 開いたときは ✕ 表示にする */
+.menu-toggle.active .bar {
+  display: none;
 }
 
-/* ナビゲーションメニュー */
-.nav {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 75%;
-  height: 100%;
-  background: #f7f2ec; /* 薄い茶色 */
-  transition: left 0.3s ease;
+.menu-toggle.active::after {
+  content: "✕";
+  font-size: 28px;
+  color: #333;
+  position: absolute;
+  right: 0;
+  top: -4px;
+}
+
+/* ================================
+   メニュー本体
+================================ */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #f2e5d7; /* 茶色系の背景 */
+  width: 250px;
+  border-left: 2px solid #c9a88c;
+  border-top: 2px solid #c9a88c;
+  padding: 10px 0;
   z-index: 1000;
-  padding-top: 60px;
 }
-.nav.open {
-  left: 0;
+
+.nav-menu.active {
+  display: flex;
 }
-.nav ul {
+
+.nav-menu li {
   list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.nav li {
-  border-bottom: 1px solid #ddd;
-}
-.nav a {
-  display: block;
-  padding: 15px;
-  font-size: 18px;
-  text-decoration: none;
-  color: #333;
+  padding: 14px 20px;
+  border-bottom: 1px solid #c9a88c; /* 区切り線を茶色系で濃く */
 }
 
-/* メニューフッター */
-.menu-footer {
-  margin-top: 20px;
-  padding: 10px;
-  border-top: 1px solid #ccc;
+.nav-menu li:last-child {
+  border-bottom: none;
 }
-.menu-footer a {
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px; /* フォントを少し大きく */
   display: block;
+}
+
+/* ================================
+   予約ボタン
+================================ */
+.reserve-btn {
+  background-color: #f06292;
+  color: #fff;
+  text-align: center;
   padding: 12px;
+  margin: 15px 20px;
+  border-radius: 8px;
   font-size: 18px;
-  text-decoration: none;
-  color: #333;
-}
-.menu-footer .btn.reserve {
-  background: #e85a78;
-  color: #fff;
-  border-radius: 20px;
-  text-align: center;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* セクション */
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: #ffeef1;
+.reserve-btn i {
+  margin-right: 8px;
 }
-.hero h1 {
-  font-size: 26px;
-}
-.hero p {
-  font-size: 16px;
-}
-.btn {
-  display: inline-block;
-  background: #e85a78;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 25px;
-  text-decoration: none;
+
+/* ================================
+   フッター内リンク (LINE/Instagram)
+================================ */
+.nav-menu .social-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
   font-size: 16px;
 }
 
-/* 本文 */
-.content {
-  padding: 40px 20px;
-  background: #fffaf7;
-}
-.content.dot {
-  background-image: radial-gradient(#f7cbd2 1px, transparent 1px);
-  background-size: 12px 12px;
-}
-.content.stripe {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    #ffd6de,
-    #ffd6de 10px,
-    #fffaf7 10px,
-    #fffaf7 20px
-  );
+.nav-menu .social-link i {
+  margin-right: 8px;
+  font-size: 20px;
 }
