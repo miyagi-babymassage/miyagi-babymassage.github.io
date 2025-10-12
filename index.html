@@ -3,86 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宮城ベビーマッサージ教室</title>
+  <title>宮城ベビーマッサージ</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- ヘッダー -->
+  <header>
+    <h1 class="site-title">宮城ベビーマッサージ</h1>
+    <!-- ハンバーガーメニューアイコン -->
+    <div class="menu-toggle" id="menuToggle">☰</div>
+  </header>
 
-<!-- ヘッダー -->
-<header id="mainHeader">
-  <div class="logo">宮城ベビーマッサージ</div>
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-</header>
+  <!-- ハンバーガーメニューのオーバーレイ -->
+  <nav class="menu-overlay" id="menuOverlay">
+    <div class="menu-close" id="menuClose">×</div>
+    <ul>
+      <li><a href="#">教室について</a></li>
+      <li><a href="#">メリット</a></li>
+      <li><a href="#">ご予約</a></li>
+    </ul>
+  </nav>
 
-<!-- バーガーメニュー -->
-<nav id="mobileMenu" class="menu-overlay">
-  <div class="close-btn" onclick="toggleMenu()">×</div>
-  <ul>
-    <li><a href="#about">教室について</a></li>
-    <li><a href="#benefits">メリット</a></li>
-    <li><a href="#schedule">スケジュール</a></li>
-    <li><a href="#contact">ご予約</a></li>
-  </ul>
-</nav>
-
-<!-- ヒーローセクション -->
-<section class="hero">
-  <div class="hero-overlay">
-    <h1>夫婦で学べる<br>ベビーマッサージ体験教室</h1>
-    <p>赤ちゃんと一緒に、安心の少人数制</p>
-    <a class="btn primary" href="#contact">📅 ご予約はこちら</a>
-  </div>
-</section>
-
-<!-- リード文 -->
-<section class="lead">
-  <h2>こんなお悩みありませんか？</h2>
-  <p>
-    「赤ちゃんとどう遊べばいいの？」<br>
-    「親子の触れ合いをもっと深めたい」<br>
-    「育休中にできることを探している」
-  </p>
-</section>
-
-<!-- メリット -->
-<section id="benefits">
-  <h2>ベビーマッサージで得られること</h2>
-  <div class="card-list">
-    <div class="card">
-      <img src="assets/placeholder-1.jpg" alt="笑顔いっぱい">
-      <p>親子の笑顔が自然にあふれる</p>
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>夫婦で学べる<br>ベビーマッサージ体験教室</h2>
+      <p>赤ちゃんと一緒に、安心の少人数制</p>
+      <a href="#" class="btn-reserve">📅 ご予約はこちら</a>
     </div>
-    <div class="card">
-      <img src="assets/placeholder-2.jpg" alt="安心感">
-      <p>赤ちゃんがリラックスしてよく眠れる</p>
-    </div>
-    <div class="card">
-      <img src="assets/placeholder-3.jpg" alt="交流">
-      <p>ママ同士の交流・仲間づくりができる</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- スケジュール -->
-<section id="schedule">
-  <h2>スケジュール</h2>
-  <p>月に数回、5〜10人規模のクラスを開催しています。</p>
-</section>
+  <!-- コンテンツ -->
+  <section class="content">
+    <h2>ダミー見出し</h2>
+    <p>
+      ここにダミーテキストが入ります。後で実際の文章に差し替えてください。<br>
+      サンプルデザインは babypark.jp のようなやわらかい雰囲気を意識しています。
+    </p>
+  </section>
 
-<!-- お問い合わせ -->
-<section id="contact">
-  <h2>ご予約はこちら</h2>
-  <p>Googleフォームから24時間受付中です。</p>
-  <a class="btn" href="https://docs.google.com/forms/xxxxx" target="_blank">📅 フォームで予約する</a>
-</section>
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2025 宮城ベビーマッサージ</p>
+  </footer>
 
-<!-- 下固定ナビ -->
-<div class="bottom-nav" id="bottomNav">
-  <a href="https://docs.google.com/forms/xxxxx" target="_blank" class="nav-reserve">📅 予約</a>
-  <a href="https://line.me/ti/p/xxxx" target="_blank" class="nav-line">💚 LINE</a>
-  <a href="https://instagram.com/xxxx" target="_blank" class="nav-insta">📷 Instagram</a>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
