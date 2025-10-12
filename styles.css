@@ -1,9 +1,10 @@
-/* ベース */
+/* 全体 */
 body {
   margin: 0;
   font-family: "Nunito", "Noto Sans JP", sans-serif;
   background: #fffaf7;
   color: #333;
+  line-height: 1.6;
 }
 
 /* ヘッダー */
@@ -11,7 +12,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;  /* 右余白を広めに */
+  padding: 15px 25px;
   background: #fff;
   position: fixed;
   top: 0;
@@ -60,13 +61,13 @@ header {
 /* ヒーロー */
 .hero {
   height: 80vh;
-  background: url('assets/placeholder-1.jpg') center/cover no-repeat;
+  background: url('assets/placeholder-hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
-  margin-top: 60px; /* ヘッダー高さ分 */
+  margin-top: 60px;
 }
 .hero-overlay {
   background: rgba(0,0,0,0.4);
