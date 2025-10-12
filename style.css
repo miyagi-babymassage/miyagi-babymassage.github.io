@@ -35,7 +35,8 @@ header {
   z-index: 2001;
 }
 
-.menu-toggle.active::after {
+/* ハンバーガー → バツに変化 */
+.menu-toggle.open::after {
   content: "✕";
   font-size: 26px;
   color: #333;
@@ -58,8 +59,8 @@ header {
   z-index: 2000;
 }
 
-.nav-menu.active {
-  right: 0;
+.nav-menu.open {
+  right: 0; /* メニューを表示 */
 }
 
 .nav-menu ul {
