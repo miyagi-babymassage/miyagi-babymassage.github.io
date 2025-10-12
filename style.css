@@ -1,4 +1,3 @@
-/* --- 基本 --- */
 body {
   margin: 0;
   font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", sans-serif;
@@ -12,7 +11,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #fff3cc; /* タイトルと同じ色 */
+  background-color: #fff3cc; /* タイトル背景色 */
 }
 
 .logo {
@@ -24,130 +23,77 @@ body {
 
 /* --- ハンバーガーメニュー --- */
 .menu-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 20px;
+  width: 30px;
+  height: 22px;
+  position: relative;
   cursor: pointer;
   z-index: 2001;
 }
+.menu-toggle::before,
+.menu-toggle::after,
 .menu-toggle span {
-  display: block;
-  height: 3px;
-  background: #333;
-  border-radius: 2px;
-}
-.menu-toggle.open::after {
-  content: "✕";
-  font-size: 28px;
-  color: #333;
+  content: "";
   position: absolute;
-  right: 15px;
-  top: 15px;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  left: 0;
+  transition: 0.3s;
 }
+.menu-toggle::before { top: 0; }
+.menu-toggle::after { bottom: 0; }
+.menu-toggle span { top: 50%; transform: translateY(-50%); }
+.menu-toggle.open::before { transform: rotate(45deg); top: 10px; }
+.menu-toggle.open::after { transform: rotate(-45deg); bottom: 9px; }
+.menu-toggle.open span { opacity: 0; }
 
-/* --- メニュー --- */
+/* --- ナビゲーション --- */
 .nav {
   position: fixed;
   top: 0;
   right: -100%;
   width: 75%;
   height: 100%;
-  background-color: #c9a982;
-  transition: right 0.3s ease;
+  background: #c79c6e;
+  transition: right 0.3s;
   padding: 60px 20px;
   z-index: 2000;
 }
-.nav.open {
-  right: 0;
-}
-.nav ul {
-  list-style: none;
-  padding: 0;
-}
-.nav li {
-  padding: 14px 0;
-  border-bottom: 1px solid #8b6b50;
-}
-.nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 18px;
-}
+.nav.open { right: 0; }
+.nav ul { list-style: none; padding: 0; margin: 0; }
+.nav li { padding: 14px 0; border-bottom: 1px solid #8b6a4e; }
+.nav a { text-decoration: none; color: #333; font-size: 18px; display: block; }
 
-/* --- メニュー内フッター --- */
-.menu-footer {
-  margin-top: 20px;
-}
+/* --- メニュー内アイコン --- */
 .menu-footer a {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 15px 0;
-  font-size: 18px;
+  margin-top: 12px;
+  gap: 10px;
   text-decoration: none;
   color: #333;
+  font-size: 16px;
 }
-.menu-footer img.menu-icon {
-  width: 40px;
-  height: 40px;
-}
+.menu-footer img { width: 28px; height: 28px; }
 
-/* --- ヒーロー --- */
-.hero {
-  text-align: center;
-  padding: 40px 20px;
-}
-.hero h1 {
-  font-size: 24px;
-}
-.hero .btn {
-  display: inline-block;
-  background-color: #e75480;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  margin-top: 15px;
-}
-
-/* --- コンテンツ背景パターン --- */
-.content {
-  padding: 30px 20px;
-}
-.pattern1 {
-  background: repeating-linear-gradient(45deg, #fdeef4, #fdeef4 20px, #fffaf7 20px, #fffaf7 40px);
-}
-.pattern2 {
-  background: repeating-linear-gradient(-45deg, #ffe6ec, #ffe6ec 20px, #fffaf7 20px, #fffaf7 40px);
-}
+/* --- 本文パターン --- */
+.content { padding: 40px 20px; }
+.dot { background: repeating-radial-gradient(circle, #ffeef2, #ffeef2 10px, transparent 12px); }
+.stripe { background: repeating-linear-gradient(45deg, #ffe6ec, #ffe6ec 20px, transparent 20px, transparent 40px); }
+.flower { background: repeating-radial-gradient(circle at 10% 10%, #ffdbe6, transparent 40px); }
 
 /* --- フッター --- */
 footer {
-  background-color: #fff3cc; /* ヘッダーと同じ色 */
-  padding: 30px 15px;
+  background: #fff3cc;
+  padding: 20px;
   text-align: center;
 }
 .footer-icons {
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
-.footer-icons div {
-  text-align: center;
-}
-.footer-icons img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 8px;
-}
-.footer-copy {
-  font-size: 12px;
-  color: #666;
-}
-.footer-info {
-  font-size: 12px;
-  color: #444;
-}
+.footer-icons div { text-align: center; }
+.footer-icons img { width: 40px; height: 40px; display: block; margin: 0 auto; }
+.footer-icons p { margin: 4px 0 0; font-size: 14px; }
