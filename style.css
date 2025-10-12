@@ -1,181 +1,137 @@
-/* --- 基本 --- */
-body {
+/* 基本リセット */
+body, h1, h2, p, ul {
   margin: 0;
-  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", sans-serif;
-  color: #333;
-  background-color: #fffaf7;
+  padding: 0;
+}
+body {
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.6;
 }
 
-/* --- ヘッダー --- */
-.header {
+/* ヘッダー */
+.site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
-  background-color: #fff3cc; /* タイトル背景 */
+  background: #FFEEAA;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
-  z-index: 2000;
+  z-index: 1000;
 }
-
 .logo {
-  font-size: 28px;
+  font-size: 1.5em;
   font-weight: bold;
-  color: #f8c8d8;
-  -webkit-text-stroke: 2px #e75480;
-  letter-spacing: 1px;
+  color: #d55;
 }
-
-/* --- ハンバーガーメニュー --- */
 .menu-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 22px;
+  font-size: 2em;
   cursor: pointer;
-  z-index: 2001;
 }
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  background: #333;
-  border-radius: 2px;
-}
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* --- ナビメニュー --- */
-.nav {
+.site-nav {
   position: fixed;
   top: 0;
-  right: -80%;
-  width: 70%;
+  right: -100%;
+  width: 75%;
   height: 100%;
-  background-color: #c89060; /* 茶色系 少し薄め */
-  padding: 60px 20px;
-  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
-  transition: right 0.3s ease;
-  z-index: 2000;
+  background: #c88;
+  color: white;
+  transition: right 0.3s;
+  padding: 20px;
 }
-.nav.open {
+.site-nav.active {
   right: 0;
 }
-.nav ul {
+.close-btn {
+  text-align: right;
+  font-size: 2em;
+  cursor: pointer;
+}
+.site-nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.nav li {
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-}
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-/* --- メニュー内アイコンリンク --- */
-.menu-footer {
   margin-top: 20px;
 }
-.menu-footer a {
+.site-nav li {
+  margin: 15px 0;
+}
+.site-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.menu-icons a {
   display: flex;
   align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: #fff;
-  margin: 12px 0;
+  margin-top: 15px;
+  color: white;
 }
-.menu-footer img {
-  width: 28px;
-  height: 28px;
+.menu-icons img {
+  width: 24px;
+  margin-right: 10px;
 }
 
-/* --- セクション共通 --- */
-.content {
+/* セクション共通 */
+.section {
   padding: 40px 20px;
-  position: relative;
-  text-align: center;
 }
-
-/* 白い四角形ダミー */
-.photo-dummy {
-  width: 90%;
-  max-width: 600px;
-  height: 200px;
-  margin: 20px auto;
+.content-box {
   background: #fff;
-  border: 2px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 30px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.content-box img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 15px;
 }
 
-/* --- 背景パターン --- */
-.dot {
-  background: radial-gradient(#f8c8d8 1px, transparent 1px);
-  background-size: 20px 20px;
+/* 背景パターン */
+.brick {
+  background-color: #FFDDAA;
+  background-image: linear-gradient(0deg, #eec 1px, transparent 1px),
+                    linear-gradient(90deg, #eec 1px, transparent 1px);
+  background-size: 40px 20px;
 }
 .stripe {
-  background: repeating-linear-gradient(
-    45deg,
-    #f8c8d8,
-    #f8c8d8 10px,
-    transparent 10px,
-    transparent 20px
-  );
+  background-color: #FFBBBB;
+  background-image: repeating-linear-gradient(45deg, #fff 0, #fff 10px, transparent 10px, transparent 20px);
 }
-.swirl {
-  background: repeating-radial-gradient(
-    circle,
-    #f8c8d8,
-    #f8c8d8 5px,
-    transparent 5px,
-    transparent 20px
-  );
+.plain {
+  background-color: #CCCCCC;
 }
-.brick {
-  background: 
-    linear-gradient(#f8c8d8 2px, transparent 2px),
-    linear-gradient(90deg, #f8c8d8 2px, transparent 2px);
-  background-size: 50px 30px;
+.dot {
+  background-color: #DDEEDD;
+  background-image: radial-gradient(#aaa 2px, transparent 2px);
+  background-size: 20px 20px;
 }
 .flower {
-  background-image: radial-gradient(circle at 20% 20%, #f8c8d8 2px, transparent 2px),
-    radial-gradient(circle at 80% 20%, #f8c8d8 2px, transparent 2px),
-    radial-gradient(circle at 20% 80%, #f8c8d8 2px, transparent 2px),
-    radial-gradient(circle at 80% 80%, #f8c8d8 2px, transparent 2px);
+  background-color: #DDDDFF;
+  background-image: radial-gradient(circle at 10px 10px, #f88 2px, transparent 3px),
+                    radial-gradient(circle at 30px 30px, #8f8 2px, transparent 3px);
   background-size: 40px 40px;
 }
 
-/* --- フッター --- */
-.footer {
-  background-color: #fff3cc;
+/* フッター */
+.site-footer {
+  background: #FFEEAA;
   padding: 20px;
   text-align: center;
 }
 .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   margin-bottom: 10px;
 }
 .footer-icons img {
   width: 40px;
-  height: 40px;
-}
-.footer-icons p {
-  margin: 4px 0 0;
-  font-size: 14px;
+  display: block;
+  margin: 0 auto 5px;
 }
 .copy {
-  font-size: 14px;
-  color: #555;
+  font-size: 0.9em;
+  color: #444;
 }
