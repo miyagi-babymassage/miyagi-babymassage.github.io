@@ -1,145 +1,120 @@
-/* ================================
-   全体のスタイル
-================================ */
+/* --- 全体の基本フォントを丸ゴシック系に統一 --- */
 body {
-  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", "Arial Rounded MT Bold", sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #fff;
+  font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", "Arial Rounded MT Bold", sans-serif;
+  background-color: #fffaf7;
   color: #333;
-  line-height: 1.6;
 }
 
-/* ================================
-   ヘッダー・ロゴ部分
-================================ */
+/* --- ヘッダーとロゴ --- */
 header {
-  background-color: #fff3cc; /* タイトル背景を上までクリーム色に統一 */
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 20px;
+  background-color: #fff3cc; /* タイトル背景色に統一 */
 }
 
 .logo-text {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: bold;
-  color: #f4a7b9; /* 薄いピンク */
-  text-shadow:
-    -2px -2px 0 #fff,
-     2px -2px 0 #fff,
-    -2px  2px 0 #fff,
-     2px  2px 0 #fff,
-    -3px -3px 0 #d6336c, /* 外側：濃いピンクの縁取り */
-     3px -3px 0 #d6336c,
-    -3px  3px 0 #d6336c,
-     3px  3px 0 #d6336c;
+  color: #f8c8d8; /* 薄めのピンク */
+  -webkit-text-stroke: 2px #e75480; /* 外枠 濃いピンク */
+  text-stroke: 2px #e75480;
+  letter-spacing: 1px;
 }
 
-/* ================================
-   ハンバーガーメニュー
-================================ */
+/* --- ハンバーガーメニュー --- */
 .menu-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
+  font-size: 28px;
   cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
   position: relative;
-}
-
-.bar {
-  height: 3px;
-  width: 100%;
-  background-color: #333;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-/* 開いたときは ✕ 表示にする */
-.menu-toggle.active .bar {
-  display: none;
+  z-index: 2001;
 }
 
 .menu-toggle.active::after {
   content: "✕";
-  font-size: 28px;
+  font-size: 26px;
   color: #333;
   position: absolute;
-  right: 0;
+  right: -2px; /* 見切れ修正 */
   top: -4px;
 }
 
-/* ================================
-   メニュー本体
-================================ */
+/* --- ナビゲーションメニュー --- */
 .nav-menu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background-color: #f2e5d7; /* 茶色系の背景 */
-  width: 250px;
-  border-left: 2px solid #c9a88c;
-  border-top: 2px solid #c9a88c;
-  padding: 10px 0;
-  z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  height: 100%;
+  background-color: #e6d5c3; /* 濃いめベージュ */
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  padding: 60px 20px;
+  z-index: 2000;
 }
 
 .nav-menu.active {
-  display: flex;
+  right: 0;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-menu li {
-  list-style: none;
-  padding: 14px 20px;
-  border-bottom: 1px solid #c9a88c; /* 区切り線を茶色系で濃く */
-}
-
-.nav-menu li:last-child {
-  border-bottom: none;
+  padding: 14px 0;
+  border-bottom: 1px solid #b08968; /* 区切り線 濃いめ茶色 */
 }
 
 .nav-menu a {
   text-decoration: none;
   color: #333;
-  font-size: 18px; /* フォントを少し大きく */
+  font-size: 18px; /* 少し大きめ */
   display: block;
 }
 
-/* ================================
-   予約ボタン
-================================ */
+/* --- ご予約ボタン --- */
 .reserve-btn {
-  background-color: #f06292;
+  display: block;
+  background-color: #e75480;
   color: #fff;
   text-align: center;
   padding: 12px;
-  margin: 15px 20px;
-  border-radius: 8px;
+  margin: 20px 0;
+  border-radius: 25px;
   font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-decoration: none;
 }
 
-.reserve-btn i {
-  margin-right: 8px;
+/* --- SNSリンク --- */
+.nav-menu .sns-links {
+  margin-top: 15px;
 }
 
-/* ================================
-   フッター内リンク (LINE/Instagram)
-================================ */
-.nav-menu .social-link {
+.nav-menu .sns-links a {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
   font-size: 16px;
+  margin-top: 12px;
 }
 
-.nav-menu .social-link i {
-  margin-right: 8px;
-  font-size: 20px;
+/* --- 本文 --- */
+main {
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-family: inherit;
+  font-weight: bold;
+  color: #333;
 }
