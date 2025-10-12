@@ -7,15 +7,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- ヘッダー -->
-  <header class="header">
+  <header class="site-header">
     <div class="logo">omamori</div>
-    <div class="menu-toggle" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav class="nav" id="navMenu">
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <nav class="site-nav" id="site-nav">
+      <div class="close-btn" id="close-btn">✕</div>
       <ul>
         <li><a href="#">ホーム</a></li>
         <li><a href="#">イベント</a></li>
@@ -24,7 +22,7 @@
         <li><a href="#">アクセス</a></li>
         <li><a href="#">お問い合わせ</a></li>
       </ul>
-      <div class="menu-footer">
+      <div class="menu-icons">
         <a href="#"><img src="images/calendar.png" alt="予約"> ご予約</a>
         <a href="#"><img src="images/line.png" alt="LINE"> LINE公式</a>
         <a href="#"><img src="images/instagram.png" alt="Instagram"> Instagram</a>
@@ -32,46 +30,53 @@
     </nav>
   </header>
 
-  <!-- 本文 -->
-  <main>
-    <!-- セクション1 ドット -->
-    <section class="content dot">
+  <!-- セクション 1（レンガ調） -->
+  <section class="section brick">
+    <div class="content-box">
       <h2>赤ちゃんとの毎日</h2>
-      <div class="photo-dummy"></div>
-      <p>ここに本文が入ります。</p>
-    </section>
+      <p>ここに本文が入ります。白いカードの上にテキストや写真を載せることができます。</p>
+      <img src="images/sample1.jpg" alt="サンプル画像">
+    </div>
+  </section>
 
-    <!-- セクション2 ストライプ -->
-    <section class="content stripe">
+  <!-- セクション 2（ストライプ） -->
+  <section class="section stripe">
+    <div class="content-box">
       <h2>イベント内容</h2>
-      <div class="photo-dummy"></div>
       <p>ここにイベントの詳細が入ります。</p>
-    </section>
+      <img src="images/sample2.jpg" alt="サンプル画像">
+    </div>
+  </section>
 
-    <!-- セクション3 渦巻き -->
-    <section class="content swirl">
+  <!-- セクション 3（柄無し） -->
+  <section class="section plain">
+    <div class="content-box">
       <h2>お知らせ</h2>
-      <div class="photo-dummy"></div>
       <p>ここにお知らせが入ります。</p>
-    </section>
+      <img src="images/sample3.jpg" alt="サンプル画像">
+    </div>
+  </section>
 
-    <!-- セクション4 レンガ風 -->
-    <section class="content brick">
-      <h2>アクセス</h2>
-      <div class="photo-dummy"></div>
-      <p>ここにアクセス情報が入ります。</p>
-    </section>
+  <!-- セクション 4（ドット） -->
+  <section class="section dot">
+    <div class="content-box">
+      <h2>育児相談</h2>
+      <p>ここに育児相談の内容を入れます。</p>
+      <img src="images/sample4.jpg" alt="サンプル画像">
+    </div>
+  </section>
 
-    <!-- セクション5 花風 -->
-    <section class="content flower">
-      <h2>お問い合わせ</h2>
-      <div class="photo-dummy"></div>
-      <p>ここに問い合わせ内容が入ります。</p>
-    </section>
-  </main>
+  <!-- セクション 5（花柄 or 草柄） -->
+  <section class="section flower">
+    <div class="content-box">
+      <h2>可愛いデザインセクション</h2>
+      <p>ここに花や草などの模様の背景を使ったセクションです。</p>
+      <img src="images/sample5.jpg" alt="サンプル画像">
+    </div>
+  </section>
 
   <!-- フッター -->
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="footer-icons">
       <div>
         <img src="images/calendar.png" alt="予約">
